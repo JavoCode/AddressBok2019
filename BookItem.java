@@ -1,4 +1,7 @@
-import java.util.Calendar;
+import java.util.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 
 public class BookItem extends Item{
 
@@ -24,10 +27,10 @@ public class BookItem extends Item{
 
     //Methods
     @Override
-    public float checkIn(Calendar dateIn) {
-        // TODO Auto-generated method stub
+    public float checkIn(Date dateIn) {
         float charge;
-        charge = super.checkIn(dateIn) +(super.checkIn(dateIn) * 0.10);
+        //float rate = 0.10;
+        charge = super.checkIn(dateIn) +(super.checkIn(dateIn) * 10/100);
         return charge;
     }
 
@@ -44,17 +47,29 @@ public class BookItem extends Item{
     }
 
     public String toString(){
-        return "Item No: "+getItemNo()+"/n"+
-                "Owner/Description: "+getOwner()+"/"+getDescription()+
-                "Value: "+getValue()+
-                "Status: "+getStatus()+
-                "Title/Author: "+getTitle()+"/"+getAuthor()+
+        return "Item No: "+getItemNo()+"\n"+
+                "Owner/Description: "+getOwner()+"/"+getDescription()+"\n"+
+                "Value: "+getValue()+"\n"+
+                "Status: "+getStatus()+"\n"+
+                "Title/Author: "+getTitle()+"/"+getAuthor()+"\n"+
                 "ISBN: "+getIsbn();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException{
+
         
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy",Locale.ENGLISH);
+
+        Date dateIn = sdf.parse("6/30/2019");
+        Date dateOut = sdf.parse("6/20/2019");
         
+        BookItem book1 = new BookItem("Jack and Jill", "Michael Cousins", "978-0134462028", "Kevin Tierney", 1800);
+        book1.checkOut("Mike Pence", dateOut);
+        book1.checkIn(dateIn);
+
+        
+        System.out.println(book1.toString());
+
     }
 
 }
