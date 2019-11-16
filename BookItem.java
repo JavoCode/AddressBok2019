@@ -15,6 +15,15 @@ public class BookItem extends Item{
 
 
 
+    
+    /** 
+     * @param title
+     * @param author
+     * @param isbn
+     * @param owner
+     * @param value
+     * @return 
+     */
     //Constructor
     public BookItem(String title, String author, String isbn, String owner, float value){
         super("BOOK",owner,value);
@@ -25,6 +34,11 @@ public class BookItem extends Item{
     }
 
 
+    
+    /** 
+     * @param dateIn
+     * @return float
+     */
     //Methods
     @Override
     public float checkIn(Date dateIn) {
@@ -34,18 +48,34 @@ public class BookItem extends Item{
         return charge;
     }
     
+    
+    /** 
+     * @return String
+     */
     public String getTitle(){
         return title;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getAuthor(){
         return author;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getIsbn(){
         return isbn;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String toString(){
         return "Item No: "+getItemNo()+"\n"+
                 "Owner/Description: "+getOwner()+"/"+getDescription()+"\n"+
@@ -55,6 +85,11 @@ public class BookItem extends Item{
                 "ISBN: "+getIsbn();
     }
 
+    
+    /** 
+     * @param args
+     * @throws ParseException
+     */
     public static void main(String[] args) throws ParseException{
 
         
