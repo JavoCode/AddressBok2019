@@ -8,6 +8,15 @@ public class EqItem extends Item{
     private String make;
     private String model;
 
+    
+    /** 
+     * @param serialNum
+     * @param make
+     * @param model
+     * @param owner
+     * @param value
+     * @return 
+     */
     //Constructor
     public EqItem(String serialNum, String make,String model, String owner, float value){
         super("EQUIPMENT",owner,value);
@@ -17,19 +26,35 @@ public class EqItem extends Item{
 
     }
 
+    
+    /** 
+     * @return String
+     */
     //Methods
     public String getSerialNumber(){
         return serialNum;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getMake(){
         return make;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getModel(){
         return model;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String toString(){
         return "Item No: "+getItemNo()+"\n"+
                 "Owner/Description: "+getOwner()+"/"+getDescription()+"\n"+
@@ -39,6 +64,11 @@ public class EqItem extends Item{
                 "Serial Number: "+getSerialNumber();
     }
 
+    
+    /** 
+     * @param args
+     * @throws ParseException
+     */
     public static void main(String[] args) throws ParseException{
 
         

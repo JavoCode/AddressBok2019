@@ -18,6 +18,13 @@ public class Item implements ExchangeItem{
     private float charge;
     private float numdays; 
     
+    
+    /** 
+     * @param description
+     * @param owner
+     * @param value
+     * @return 
+     */
     public Item(String description, String owner, float value){
         this.description = description;
         this.owner = owner; 
@@ -36,6 +43,10 @@ public class Item implements ExchangeItem{
         status = Status.Available;
     }
 
+    
+    /** 
+     * @return String
+     */
     //method to return the string status of the item
     public String getStatus(){
         if(status == Status.Available){
@@ -44,6 +55,11 @@ public class Item implements ExchangeItem{
         return "Borrowed by " + burrower +" "+ dateOut;
     }
 
+    
+    /** 
+     * @param burrower
+     * @param dateOut
+     */
     //method checkOut 
     public void checkOut(String burrower, Date dateOut){
         this.burrower = burrower;
@@ -51,6 +67,11 @@ public class Item implements ExchangeItem{
         status = Status.Onloan;
     }
 
+    
+    /** 
+     * @param dateIn
+     * @return float
+     */
     //method checkIn
     public float checkIn(Date dateIn){
         this.dateIn = dateIn;
@@ -61,6 +82,10 @@ public class Item implements ExchangeItem{
         return charge;
     }
 
+    
+    /** 
+     * @return long
+     */
     //method to return the difference in days 
     public long diffDays(){
         long differenceInMs = Math.abs(dateOut.getTime()-dateIn.getTime());
@@ -69,6 +94,10 @@ public class Item implements ExchangeItem{
     }
 
 
+    
+    /** 
+     * @return boolean
+     */
     //method that returns true if the item is available to borrow
     public boolean isAvailable(){
 
@@ -78,6 +107,10 @@ public class Item implements ExchangeItem{
         return false;
     }
 
+    
+    /** 
+     * @return String
+     */
     //getter Methods 
     public String getItemNo(){
         String output = null;
@@ -90,22 +123,42 @@ public class Item implements ExchangeItem{
         return output;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getDescription(){
         return description;
     }
 
+    
+    /** 
+     * @return float
+     */
     public float getValue(){
         return value;
     }
 
+    
+    /** 
+     * @return float
+     */
     public float getRate(){
         return rate;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getOwner(){
         return owner;
     }
 
+    
+    /** 
+     * @return String
+     */
     //toString method
     public String toString(){
         return  "Item No: "+getItemNo() +"\n"+
