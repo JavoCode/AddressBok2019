@@ -1,4 +1,4 @@
-import java.util.Calendar;
+import java.util.*;
 
 public interface ExchangeItem{
 
@@ -9,10 +9,10 @@ public interface ExchangeItem{
     public boolean isAvailable();
     
     //Method to check out an item
-    public void checkOut(String burrower, Calendar dateOut);
+    public void checkOut(String burrower, Date dateOut);
 
     //Method to check in an item
-    public float checkIn(Calendar dateIn);
+    public float checkIn(Date dateIn);
 
 
 

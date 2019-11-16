@@ -1,19 +1,29 @@
-import java.util.Calendar;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.Locale;
 
 public class Main{
-    public static void main(String[] args) {
-        Item it1 = new Item("BOOK", "Bob Brown", 300);
+    public static void main(String[] args) throws ParseException{
+        Item it1 = new Item("BOOK", "Bob Brown", 1500);
         Item it2 = new Item("EQUIPMENT","Jason Smith",400);
-        Calendar calc = Calendar.getInstance();
-        Calendar calc2 = Calendar.getInstance();
-        calc.set(2019, 10, 15);
-        calc2.set(2019, 11, 10);
-        it1.checkOut("Max Phillips", calc);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy",Locale.ENGLISH);
+
+        Date dateIn = sdf.parse("6/30/2019");
+        Date dateOut = sdf.parse("6/20/2019");
+
+        it1.checkOut("Max Phillips", dateOut);
+        System.out.println(it1.checkIn(dateIn));
+        
+        //System.out.println(it1.diffDays());
+        
         //System.out.println(it1.checkIn(calc2));
-        //System.out.println(it1.toString());
+        System.out.println(it1.toString());
         
         System.out.println(it1.getItemNo());
         System.out.println(it2.getItemNo());
+        System.out.println(it2.toString());
         
         
     }

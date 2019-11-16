@@ -35,4 +35,8 @@ public class EqItem extends Item{
                 "Make/Model: "+getMake()+"/"+getModel()+
                 "Serial Number: "+getSerialNumber();
     }
+
+    public static void main(String[] args) {
+        
+    }
 }

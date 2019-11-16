@@ -52,4 +52,9 @@ public class BookItem extends Item{
                 "ISBN: "+getIsbn();
     }
 
+    public static void main(String[] args) {
+        
+        
+    }
+
 }

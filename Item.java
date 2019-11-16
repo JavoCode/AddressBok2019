@@ -1,23 +1,24 @@
 import java.time.temporal.ChronoUnit;
-import java.util.Calendar;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class Item implements ExchangeItem{
 
     //Attributes 
     private String description; 
     private String owner; 
-    private int value; 
+    private float value; 
     private static int count = 1; 
     private int id;
-    private int rate; 
+    private float rate; 
     private Status status;
     private String burrower; 
-    private Calendar dateIn;
-    private Calendar dateOut;
+    private Date dateIn;
+    private Date dateOut;
     private float charge;
     private float numdays; 
     
-    public Item(String description, String owner, int value){
+    public Item(String description, String owner, float value){
         this.description = description;
         this.owner = owner; 
         this.value = value; 
@@ -30,6 +31,7 @@ public class Item implements ExchangeItem{
         }
 
         rate = value/365;
+        //System.out.println(rate);
 
         status = Status.Available;
     }
@@ -39,23 +41,33 @@ public class Item implements ExchangeItem{
         if(status == Status.Available){
            return "Available"; 
         }
-        return "Borrowed by" + burrower +" "+ dateOut;
+        return "Borrowed by " + burrower +" "+ dateOut;
     }
 
     //method checkOut 
-    public void checkOut(String burrower, Calendar dateOut){
+    public void checkOut(String burrower, Date dateOut){
         this.burrower = burrower;
         this.dateOut = dateOut;
         status = Status.Onloan;
     }
 
     //method checkIn
-    public float checkIn(Calendar dateIn){
+    public float checkIn(Date dateIn){
         this.dateIn = dateIn;
-        numdays = ChronoUnit.DAYS.between(dateOut.toInstant(), dateIn.toInstant());
-        charge = rate * numdays;
+        long differenceInMs = Math.abs(dateOut.getTime()-dateIn.getTime());
+        long diffInDays = TimeUnit.DAYS.convert(differenceInMs, TimeUnit.MILLISECONDS);
+        charge = rate * diffInDays;
+        //System.out.println(charge);
         return charge;
     }
+
+    //method to return the difference in days 
+    public long diffDays(){
+        long differenceInMs = Math.abs(dateOut.getTime()-dateIn.getTime());
+        long diffInDays = TimeUnit.DAYS.convert(differenceInMs, TimeUnit.MILLISECONDS);
+        return diffInDays;
+    }
+
 
     //method that returns true if the item is available to borrow
     public boolean isAvailable(){
@@ -96,10 +108,14 @@ public class Item implements ExchangeItem{
 
     //toString method
     public String toString(){
-        return  "Item No: "+getItemNo() +"/n"+
-                "Owner/Description: " + getOwner() +"/"+getDescription()+
-                "Value: "+ getValue()+
+        return  "Item No: "+getItemNo() +"\n"+
+                "Owner/Description: " + getOwner() +"/"+getDescription()+"\n"+
+                "Value: "+ getValue()+"\n"+
                 "Status: " +getStatus();
+    }
+
+    public static void main(String[] args) {
+        
     }
 
 
