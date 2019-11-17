@@ -20,6 +20,7 @@ public class Item implements ExchangeItem{
     
     
     /** 
+     * Constructor of the Item class
      * @param description
      * @param owner
      * @param value
@@ -84,9 +85,9 @@ public class Item implements ExchangeItem{
 
     
     /** 
+     * method to return the difference in days 
      * @return long
      */
-    //method to return the difference in days 
     public long diffDays(){
         long differenceInMs = Math.abs(dateOut.getTime()-dateIn.getTime());
         long diffInDays = TimeUnit.DAYS.convert(differenceInMs, TimeUnit.MILLISECONDS);
@@ -96,9 +97,9 @@ public class Item implements ExchangeItem{
 
     
     /** 
+     * method that returns true if the item is available to borrow
      * @return boolean
      */
-    //method that returns true if the item is available to borrow
     public boolean isAvailable(){
 
         if(status == Status.Available){
@@ -109,6 +110,7 @@ public class Item implements ExchangeItem{
 
     
     /** 
+     * Returns the item ID number 
      * @return String
      */
     //getter Methods 
@@ -125,6 +127,7 @@ public class Item implements ExchangeItem{
 
     
     /** 
+     * Returns Item Desccription 
      * @return String
      */
     public String getDescription(){
@@ -132,7 +135,7 @@ public class Item implements ExchangeItem{
     }
 
     
-    /** 
+    /** Returns the value of the Item
      * @return float
      */
     public float getValue(){
@@ -141,6 +144,7 @@ public class Item implements ExchangeItem{
 
     
     /** 
+     * Returns the rate charged for borrowing the item
      * @return float
      */
     public float getRate(){
@@ -149,6 +153,7 @@ public class Item implements ExchangeItem{
 
     
     /** 
+     * Returns the owner of the Item
      * @return String
      */
     public String getOwner(){

@@ -17,6 +17,7 @@ public class BookItem extends Item{
 
     
     /** 
+     * Constructor for the BookItem Class
      * @param title
      * @param author
      * @param isbn
@@ -50,6 +51,7 @@ public class BookItem extends Item{
     
     
     /** 
+     * Returns the title of the Book
      * @return String
      */
     public String getTitle(){
@@ -58,6 +60,7 @@ public class BookItem extends Item{
 
     
     /** 
+     * Returns the author of the book
      * @return String
      */
     public String getAuthor(){
@@ -66,6 +69,7 @@ public class BookItem extends Item{
 
     
     /** 
+     * Returns the Isbn number of the book 
      * @return String
      */
     public String getIsbn(){
@@ -74,6 +78,13 @@ public class BookItem extends Item{
 
     
     /** 
+     * To string that prints the book in the format 
+     * Item No: 
+     * Owner/Description: 
+     * Value: 
+     *Status: 
+     *Title/Author: 
+     *ISBN: 
      * @return String
      */
     public String toString(){

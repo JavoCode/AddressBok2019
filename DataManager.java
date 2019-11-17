@@ -10,20 +10,20 @@ import java.io.File;
  * @author COMP1161
  * @version 1.0 2019 Semester 1
  */
-public abstract class DataManager<T>
+public abstract class DataManager<tempData>
 {
     // instance variables - replace the example below with your own
-    protected List<T> data;
+    protected List<tempData> data;
     protected int currentPos = 0;
     
     public DataManager(String fileName){
-        data = new ArrayList<T>();
+        data = new ArrayList<tempData>();
         try {
             Scanner myScanner = openFile(fileName);
             while (myScanner.hasNext()) {
                     String oneLine = myScanner.nextLine();
                     String[] tokens = oneLine.split(",");
-                    T newObject = buildObject(tokens);
+                    tempData newObject = buildObject(tokens);
                     add(newObject);
             }
         }
@@ -36,7 +36,7 @@ public abstract class DataManager<T>
      * Adds an object to the collection of objects
      * @param newData the new object that is to be added to the list
      */
-    public void add(T newData){
+    public void add(tempData newData){
         data.add(newData);
     }
     
@@ -59,7 +59,7 @@ public abstract class DataManager<T>
      * Retrieve the next object from the collection and advance after
      * @return the next object from the list, or null is at the end
      */
-    public T next(){
+    public tempData next(){
         if (currentPos < data.size())
             return data.get(currentPos++);
         else
@@ -88,7 +88,7 @@ public abstract class DataManager<T>
      * @param tokens list of strings being data read from file
      * @return a new object that is to be added to the list
      */
-    public abstract T buildObject(String[] tokens);
+    public abstract tempData buildObject(String[] tokens);
     
     /** 
      * Close the file after writing the data back (overwriting) if flag is set to true

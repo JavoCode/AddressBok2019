@@ -14,8 +14,10 @@ public class ExchangeManager <T> extends DataManager
     }
     
     // The following are stubs so that the code compiles
-    public Scanner openFile(String f){
-        return null;
+    public Scanner openFile(String fileName){
+        File file = new File(filename);
+        Scanner scan = new Scanner (file);
+        return scan;
     }
     
     
@@ -26,7 +28,8 @@ public class ExchangeManager <T> extends DataManager
     public void closeFile(boolean flag) {
     }
     
-    public Integer buildObject(String[] toks) {
+    public Object buildObject(String[] toks) {
+
         return null;
     }
 
