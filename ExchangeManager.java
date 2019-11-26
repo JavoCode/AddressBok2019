@@ -1,4 +1,4 @@
-package project;
+import TheLendingExchange.*;
 import java.util.Scanner;
 
 /**

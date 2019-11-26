@@ -1,16 +1,18 @@
+package TheLendingExchange.src;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
+
 public class Item {
 
     //Attributes 
-    private final String description; 
-    private final String owner; 
-    private final float value; 
+    private  String description; 
+    private  String owner; 
+    private  float value; 
     private static int count = 1; 
     private int id;
-    private final float rate; 
+    private  float rate; 
     private Status status;
     private String burrower; 
     private Date dateIn;
@@ -25,7 +27,7 @@ public class Item {
      * @param value
      * @return 
      */
-    public Item(final String description, final String owner, final float value){
+    public Item( String description,  String owner,  float value){
         this.description = description;
         this.owner = owner; 
         this.value = value; 
@@ -61,7 +63,7 @@ public class Item {
      * @param dateOut
      */
     //method checkOut 
-    public void checkOut(final String burrower, final Date dateOut){
+    public void checkOut( String burrower,  Date dateOut){
         this.burrower = burrower;
         this.dateOut = dateOut;
         status = Status.Onloan;
@@ -73,10 +75,10 @@ public class Item {
      * @return float
      */
     //method checkIn
-    public float checkIn(final Date dateIn){
+    public float checkIn( Date dateIn){
         this.dateIn = dateIn;
-        final long differenceInMs = Math.abs(dateOut.getTime()-dateIn.getTime());
-        final long diffInDays = TimeUnit.DAYS.convert(differenceInMs, TimeUnit.MILLISECONDS);
+         long differenceInMs = Math.abs(dateOut.getTime()-dateIn.getTime());
+         long diffInDays = TimeUnit.DAYS.convert(differenceInMs, TimeUnit.MILLISECONDS);
         charge = rate * diffInDays;
         status = Status.Available;
         //System.out.println(charge);
@@ -89,8 +91,8 @@ public class Item {
      * @return long
      */
     public long diffDays(){
-        final long differenceInMs = Math.abs(dateOut.getTime()-dateIn.getTime());
-        final long diffInDays = TimeUnit.DAYS.convert(differenceInMs, TimeUnit.MILLISECONDS);
+         long differenceInMs = Math.abs(dateOut.getTime()-dateIn.getTime());
+         long diffInDays = TimeUnit.DAYS.convert(differenceInMs, TimeUnit.MILLISECONDS);
         return diffInDays;
     }
 

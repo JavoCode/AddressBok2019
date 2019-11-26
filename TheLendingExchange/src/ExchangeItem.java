@@ -1,3 +1,5 @@
+package TheLendingExchange.src;
+
 import java.util.*;
 
 public interface ExchangeItem{

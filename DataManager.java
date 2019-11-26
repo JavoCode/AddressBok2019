@@ -1,8 +1,8 @@
-package project;
-import java.util.List;
+import TheLendingExchange.src.*;
+
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
-import java.io.File;
 
 /**
  * Abstract class DataManager - Manage data read from a text file of comma separated values
@@ -12,6 +12,11 @@ import java.io.File;
  */
 public abstract class DataManager<tempData>
 {
+
+    private String description;
+    private String owner;
+    private float value;
+    Item It1 = new Item(description, owner, value);
     // instance variables - replace the example below with your own
     protected List<tempData> data;
     protected int currentPos = 0;
