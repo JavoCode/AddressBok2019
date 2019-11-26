@@ -5,15 +5,15 @@ import java.util.Locale;
 
 public class Main{
     public static void main(String[] args) throws ParseException{
-        // Item it1 = new Item("BOOK", "Bob Brown", 1500);
-        // Item it2 = new Item("EQUIPMENT","Jason Smith",400);
+        //Item it1 = new Item("BOOK", "Bob Brown", 1500);
+        //Item it2 = new Item("EQUIPMENT","Jason Smith",400);
 
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy",Locale.ENGLISH);
 
         Date dateIn = sdf.parse("6/30/2019");
         Date dateOut = sdf.parse("6/20/2019");
 
-        // it1.checkOut("Max Phillips", dateOut);
+        //it1.checkOut("Max Phillips", dateOut);
         // System.out.println(it1.checkIn(dateIn));
         
         // //System.out.println(it1.diffDays());
@@ -39,6 +39,7 @@ public class Main{
 
         System.out.println(eq1.toString());
         System.out.println(book1.toString());
+        System.out.println();
 
 
         
